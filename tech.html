@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Tutorials | Digital Life Hub</title>
+<style>
+:root {
+    --tech-color: #3182ce;
+    --dark: #2d3748;
+    --gray: #718096;
+    --light: #f7fafc;
+    --shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+body { margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background:#f8f9fa; color:#333;}
+header, footer { background: var(--dark); color:white; padding:20px;}
+header h1 { margin:0; font-size:24px;}
+footer p { margin:5px 0; font-size:14px;}
+.container { max-width:1200px; margin:0 auto; padding:0 20px;}
+.hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center; text-align:center; padding:60px 20px; color:white; border-radius:0 0 20px 20px;}
+.hero h1 { font-size:36px; margin-bottom:10px;}
+.hero p { font-size:16px; margin-bottom:0;}
+.main-grid { display:grid; grid-template-columns:2fr 1fr; gap:30px; margin:40px 0;}
+.articles-grid { display:grid; grid-template-columns:1fr; gap:25px;}
+.article-card { background:white; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); transition: transform 0.3s; cursor:pointer;}
+.article-card:hover { transform:translateY(-5px);}
+.article-image { height:200px; background-size:cover; background-position:center;}
+.article-content { padding:20px;}
+.article-category { display:inline-block; padding:5px 10px; border-radius:15px; font-size:12px; font-weight:bold; color:white; background: var(--tech-color); margin-bottom:10px;}
+.article-title { font-size:18px; color: var(--dark); margin-bottom:10px;}
+.article-excerpt { font-size:14px; color: var(--gray); margin-bottom:15px;}
+.read-more { text-decoration:none; color: var(--dark); font-weight:600;}
+.read-more:hover { color: #2b6cb0;}
+.sidebar { background:white; border-radius:12px; padding:20px; box-shadow: var(--shadow); position:sticky; top:20px; height:fit-content;}
+.sidebar-section { margin-bottom:25px;}
+.sidebar-title { font-size:16px; margin-bottom:15px; border-bottom:1px solid #edf2f7; padding-bottom:5px;}
+.ad-space { background:#f7fafc; border:2px dashed #cbd5e0; border-radius:10px; padding:20px; text-align:center; margin:30px 0;}
+input, button { width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid #cbd5e0; font-size:14px;}
+button { background: var(--tech-color); color:white; border:none; cursor:pointer; font-weight:bold;}
+button:hover { background:#2b6cb0;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Digital Life Hub | Tech</h1>
+</header>
+
+<section class="hero">
+    <h1>Tech Tutorials</h1>
+    <p>Master coding, gadgets, and digital skills!</p>
+</section>
+
+<div class="container main-grid">
+<main>
+    <h2 style="color:var(--dark); margin-bottom:20px;">Latest Tech Articles</h2>
+    <div class="articles-grid" id="tech-articles-container">
+        <!-- Article 1 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Tech</span>
+                <h3 class="article-title">Learn JavaScript Basics</h3>
+                <p class="article-excerpt">Step-by-step beginner guide to mastering JavaScript fundamentals.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <!-- Article 2 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Tech</span>
+                <h3 class="article-title">Top 5 Programming Tools</h3>
+                <p class="article-excerpt">Discover the most efficient tools for coding and software development.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <!-- Article 3 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Tech</span>
+                <h3 class="article-title">Build Your First Website</h3>
+                <p class="article-excerpt">Learn how to create a responsive website from scratch in easy steps.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-space">
+        <span>ADVERTISEMENT</span>
+        <p>Your ad can appear here!</p>
+        <div>Views: <span id="tech-ad-views">0</span></div>
+    </div>
+</main>
+
+<aside class="sidebar">
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Trending Tech</h3>
+        <div id="trending-tech-list">
+            <p>1. AI Tools You Must Try</p>
+            <p>2. Productivity Apps</p>
+            <p>3. Latest Gadgets 2025</p>
+        </div>
+    </div>
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Newsletter</h3>
+        <input type="email" id="newsletter-email-tech" placeholder="Your email">
+        <button id="subscribe-btn-tech">Subscribe</button>
+        <div id="subscribe-message-tech"></div>
+    </div>
+</aside>
+</div>
+
+<footer>
+    <p>© 2025 Digital Life Hub. All content free to use.</p>
+    <p><a href="privacy-policy.html" style="color:white;">Privacy Policy</a></p>
+</footer>
+
+<script>
+document.getElementById('subscribe-btn-tech').addEventListener('click', function(){
+    var email = document.getElementById('newsletter-email-tech').value;
+    var msg = document.getElementById('subscribe-message-tech');
+    if(email.trim() === ''){ msg.innerText = 'Please enter your email!'; msg.style.color='red'; }
+    else{ msg.innerText = 'Subscribed successfully!'; msg.style.color='green'; }
+});
+</script>
+
+</body>
+</html>

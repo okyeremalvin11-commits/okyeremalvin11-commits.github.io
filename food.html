@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food & Recipes | Digital Life Hub</title>
+<!-- Inline CSS -->
+<style>
+:root {
+    --food-color: #e53e3e;
+    --dark: #2d3748;
+    --gray: #718096;
+    --light: #f7fafc;
+    --shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+body { margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background:#f8f9fa; color:#333;}
+header, footer { background: var(--dark); color:white; padding:20px;}
+header h1 { margin:0; font-size:24px;}
+footer p { margin:5px 0; font-size:14px;}
+.container { max-width:1200px; margin:0 auto; padding:0 20px;}
+.hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center; text-align:center; padding:60px 20px; color:white; border-radius:0 0 20px 20px;}
+.hero h1 { font-size:36px; margin-bottom:10px;}
+.hero p { font-size:16px; margin-bottom:0;}
+.main-grid { display:grid; grid-template-columns:2fr 1fr; gap:30px; margin:40px 0;}
+.articles-grid { display:grid; grid-template-columns:1fr; gap:25px;}
+.article-card { background:white; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); transition: transform 0.3s; cursor:pointer;}
+.article-card:hover { transform:translateY(-5px);}
+.article-image { height:200px; background-size:cover; background-position:center;}
+.article-content { padding:20px;}
+.article-category { display:inline-block; padding:5px 10px; border-radius:15px; font-size:12px; font-weight:bold; color:white; background: var(--food-color); margin-bottom:10px;}
+.article-title { font-size:18px; color: var(--dark); margin-bottom:10px;}
+.article-excerpt { font-size:14px; color: var(--gray); margin-bottom:15px;}
+.read-more { text-decoration:none; color: var(--dark); font-weight:600;}
+.read-more:hover { color: #c53030;}
+.sidebar { background:white; border-radius:12px; padding:20px; box-shadow: var(--shadow); position:sticky; top:20px; height:fit-content;}
+.sidebar-section { margin-bottom:25px;}
+.sidebar-title { font-size:16px; margin-bottom:15px; border-bottom:1px solid #edf2f7; padding-bottom:5px;}
+.ad-space { background:#f7fafc; border:2px dashed #cbd5e0; border-radius:10px; padding:20px; text-align:center; margin:30px 0;}
+input, button { width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid #cbd5e0; font-size:14px;}
+button { background: var(--food-color); color:white; border:none; cursor:pointer; font-weight:bold;}
+button:hover { background:#c53030;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Digital Life Hub | Food</h1>
+</header>
+
+<section class="hero">
+    <h1>Food & Recipes</h1>
+    <p>Discover delicious recipes and cooking tips!</p>
+</section>
+
+<div class="container main-grid">
+<main>
+    <h2 style="color:var(--dark); margin-bottom:20px;">Latest Food Articles</h2>
+    <div class="articles-grid" id="food-articles-container">
+        <!-- Article 1 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Food</span>
+                <h3 class="article-title">Vegan Pasta Delight</h3>
+                <p class="article-excerpt">Learn how to make a healthy and tasty vegan pasta with fresh ingredients.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <!-- Article 2 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Food</span>
+                <h3 class="article-title">Chocolate Cake Recipe</h3>
+                <p class="article-excerpt">Step-by-step guide to baking a rich and moist chocolate cake.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+        <!-- Article 3 -->
+        <div class="article-card">
+            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="article-content">
+                <span class="article-category">Food</span>
+                <h3 class="article-title">Healthy Smoothie Bowls</h3>
+                <p class="article-excerpt">Quick and nutritious smoothie bowl recipes for a fresh start to your day.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-space">
+        <span>ADVERTISEMENT</span>
+        <p>Your ad can appear here!</p>
+        <div>Views: <span id="food-ad-views">0</span></div>
+    </div>
+</main>
+
+<aside class="sidebar">
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Trending Food</h3>
+        <div id="trending-food-list">
+            <p>1. Avocado Toast Tips</p>
+            <p>2. Quick 15-min Meals</p>
+            <p>3. Homemade Pizza Tricks</p>
+        </div>
+    </div>
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Newsletter</h3>
+        <input type="email" id="newsletter-email-food" placeholder="Your email">
+        <button id="subscribe-btn-food">Subscribe</button>
+        <div id="subscribe-message-food"></div>
+    </div>
+</aside>
+</div>
+
+<footer>
+    <p>© 2025 Digital Life Hub. All content free to use.</p>
+    <p><a href="privacy-policy.html" style="color:white;">Privacy Policy</a></p>
+</footer>
+
+<!-- Inline JS -->
+<script>
+document.getElementById('subscribe-btn-food').addEventListener('click', function(){
+    var email = document.getElementById('newsletter-email-food').value;
+    var msg = document.getElementById('subscribe-message-food');
+    if(email.trim() === ''){ msg.innerText = 'Please enter your email!'; msg.style.color='red'; }
+    else{ msg.innerText = 'Subscribed successfully!'; msg.style.color='green'; }
+});
+</script>
+
+</body>
+</html>
