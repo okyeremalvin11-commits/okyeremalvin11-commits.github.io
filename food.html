@@ -1,134 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food & Recipes | Digital Life Hub</title>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2440011936736360"
-     crossorigin="anonymous"></script>
-<!-- Inline CSS -->
-<style>
-:root {
-    --food-color: #e53e3e;
-    --dark: #2d3748;
-    --gray: #718096;
-    --light: #f7fafc;
-    --shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-body { margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background:#f8f9fa; color:#333;}
-header, footer { background: var(--dark); color:white; padding:20px;}
-header h1 { margin:0; font-size:24px;}
-footer p { margin:5px 0; font-size:14px;}
-.container { max-width:1200px; margin:0 auto; padding:0 20px;}
-.hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center; text-align:center; padding:60px 20px; color:white; border-radius:0 0 20px 20px;}
-.hero h1 { font-size:36px; margin-bottom:10px;}
-.hero p { font-size:16px; margin-bottom:0;}
-.main-grid { display:grid; grid-template-columns:2fr 1fr; gap:30px; margin:40px 0;}
-.articles-grid { display:grid; grid-template-columns:1fr; gap:25px;}
-.article-card { background:white; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); transition: transform 0.3s; cursor:pointer;}
-.article-card:hover { transform:translateY(-5px);}
-.article-image { height:200px; background-size:cover; background-position:center;}
-.article-content { padding:20px;}
-.article-category { display:inline-block; padding:5px 10px; border-radius:15px; font-size:12px; font-weight:bold; color:white; background: var(--food-color); margin-bottom:10px;}
-.article-title { font-size:18px; color: var(--dark); margin-bottom:10px;}
-.article-excerpt { font-size:14px; color: var(--gray); margin-bottom:15px;}
-.read-more { text-decoration:none; color: var(--dark); font-weight:600;}
-.read-more:hover { color: #c53030;}
-.sidebar { background:white; border-radius:12px; padding:20px; box-shadow: var(--shadow); position:sticky; top:20px; height:fit-content;}
-.sidebar-section { margin-bottom:25px;}
-.sidebar-title { font-size:16px; margin-bottom:15px; border-bottom:1px solid #edf2f7; padding-bottom:5px;}
-.ad-space { background:#f7fafc; border:2px dashed #cbd5e0; border-radius:10px; padding:20px; text-align:center; margin:30px 0;}
-input, button { width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid #cbd5e0; font-size:14px;}
-button { background: var(--food-color); color:white; border:none; cursor:pointer; font-weight:bold;}
-button:hover { background:#c53030;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Recipes - Digital Life Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .category-hero {
+            background: linear-gradient(rgba(229, 62, 62, 0.9), rgba(229, 62, 62, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+        .category-title {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #4a5568;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #e53e3e;
+            color: white;
+            border-color: #e53e3e;
+        }
+        .back-home {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 12px 25px;
+            background: #3182ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-home:hover {
+            background: #2c5282;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>DigitalLifeHub</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="food.html" class="nav-food"><i class="fas fa-utensils"></i> Food</a></li>
+                    <li><a href="tech.html" class="nav-tech"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                    <li><a href="gaming.html" class="nav-gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <h1>Digital Life Hub | Food</h1>
-</header>
-
-<section class="hero">
-    <h1>Food & Recipes</h1>
-    <p>Discover delicious recipes and cooking tips!</p>
-</section>
-
-<div class="container main-grid">
-<main>
-    <h2 style="color:var(--dark); margin-bottom:20px;">Latest Food Articles</h2>
-    <div class="articles-grid" id="food-articles-container">
-        <!-- Article 1 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Food</span>
-                <h3 class="article-title">Vegan Pasta Delight</h3>
-                <p class="article-excerpt">Learn how to make a healthy and tasty vegan pasta with fresh ingredients.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+    <!-- Food Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-title"><i class="fas fa-utensils"></i> Food & Recipes</h1>
+            <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Delicious recipes, cooking tips, and food hacks for everyone!</p>
+            
+            <div class="category-stats">
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">150+</div>
+                    <div>Recipes</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">10+</div>
+                    <div>Cuisines</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">5-30 min</div>
+                    <div>Prep Time</div>
+                </div>
             </div>
         </div>
-        <!-- Article 2 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Food</span>
-                <h3 class="article-title">Chocolate Cake Recipe</h3>
-                <p class="article-excerpt">Step-by-step guide to baking a rich and moist chocolate cake.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+    </section>
+
+    <div class="container">
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Recipes</button>
+            <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+            <button class="filter-btn" data-filter="lunch">Lunch</button>
+            <button class="filter-btn" data-filter="dinner">Dinner</button>
+            <button class="filter-btn" data-filter="dessert">Desserts</button>
+            <button class="filter-btn" data-filter="quick">Quick Meals</button>
+        </div>
+
+        <!-- Featured Recipes -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Featured Recipes</h2>
+        
+        <div class="articles-grid" id="food-articles">
+            <!-- Food articles will be loaded by JavaScript -->
+            <div style="text-align: center; padding: 50px; color: #718096;">
+                <i class="fas fa-utensils fa-3x" style="margin-bottom: 20px; color: #e53e3e;"></i>
+                <h3>Loading delicious recipes...</h3>
+                <p>Food articles will appear here automatically when you add them.</p>
             </div>
         </div>
-        <!-- Article 3 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Food</span>
-                <h3 class="article-title">Healthy Smoothie Bowls</h3>
-                <p class="article-excerpt">Quick and nutritious smoothie bowl recipes for a fresh start to your day.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+
+        <!-- Newsletter Section -->
+        <div style="background: #f0fff4; padding: 30px; border-radius: 15px; margin: 40px 0; text-align: center;">
+            <h3><i class="fas fa-envelope"></i> Get Weekly Recipes</h3>
+            <p style="margin: 15px 0;">Subscribe to receive new recipes every week!</p>
+            <div style="max-width: 400px; margin: 20px auto;">
+                <input type="email" placeholder="Your email" style="width: 70%; padding: 12px; border: 2px solid #cbd5e0; border-radius: 5px;">
+                <button style="background: #e53e3e; color: white; border: none; padding: 12px 25px; border-radius: 5px; margin-left: 10px; font-weight: bold; cursor: pointer;">
+                    Subscribe
+                </button>
             </div>
         </div>
-    </div>
 
-    <div class="ad-space">
-        <span>ADVERTISEMENT</span>
-        <p>Your ad can appear here!</p>
-        <div>Views: <span id="food-ad-views">0</span></div>
-    </div>
-</main>
-
-<aside class="sidebar">
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Trending Food</h3>
-        <div id="trending-food-list">
-            <p>1. Avocado Toast Tips</p>
-            <p>2. Quick 15-min Meals</p>
-            <p>3. Homemade Pizza Tricks</p>
+        <!-- Popular Topics -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Popular Topics</h2>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
+            <span style="background: #fff5f5; color: #742a2a; padding: 10px 20px; border-radius: 20px; font-weight: bold;">Quick Breakfast</span>
+            <span style="background: #fff5f5; color: #742a2a; padding: 10px 20px; border-radius: 20px; font-weight: bold;">Healthy Lunch</span>
+            <span style="background: #fff5f5; color: #742a2a; padding: 10px 20px; border-radius: 20px; font-weight: bold;">Easy Dinner</span>
+            <span style="background: #fff5f5; color: #742a2a; padding: 10px 20px; border-radius: 20px; font-weight: bold;">Meal Prep</span>
+            <span style="background: #fff5f5; color: #742a2a; padding: 10px 20px; border-radius: 20px; font-weight: bold;">Budget Cooking</span>
         </div>
+
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
     </div>
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Newsletter</h3>
-        <input type="email" id="newsletter-email-food" placeholder="Your email">
-        <button id="subscribe-btn-food">Subscribe</button>
-        <div id="subscribe-message-food"></div>
-    </div>
-</aside>
-</div>
 
-<footer>
-    <p>© 2025 Digital Life Hub. All content free to use.</p>
-    <p><a href="privacy-policy.html" style="color:white;">Privacy Policy</a></p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>DigitalLifeHub</h3>
+                    <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Food Categories</h3>
+                    <ul>
+                        <li><a href="food.html?filter=breakfast"><i class="fas fa-sun"></i> Breakfast</a></li>
+                        <li><a href="food.html?filter=lunch"><i class="fas fa-sun"></i> Lunch</a></li>
+                        <li><a href="food.html?filter=dinner"><i class="fas fa-moon"></i> Dinner</a></li>
+                        <li><a href="food.html?filter=dessert"><i class="fas fa-ice-cream"></i> Desserts</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
+                <p style="margin-top: 10px; font-size: 12px;">Food recipes are tested and approved by our team.</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Inline JS -->
-<script>
-document.getElementById('subscribe-btn-food').addEventListener('click', function(){
-    var email = document.getElementById('newsletter-email-food').value;
-    var msg = document.getElementById('subscribe-message-food');
-    if(email.trim() === ''){ msg.innerText = 'Please enter your email!'; msg.style.color='red'; }
-    else{ msg.innerText = 'Subscribed successfully!'; msg.style.color='green'; }
-});
-</script>
+    <script>
+        // Load food articles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    alert(`Filtering by: ${filter} (This would filter articles in a real site)`);
+                });
+            });
 
+            // Display food articles
+            const foodContainer = document.getElementById('food-articles');
+            const sampleFoodArticles = [
+                {
+                    title: "5-Minute Breakfast Recipes",
+                    excerpt: "Quick and healthy breakfast ideas for busy mornings.",
+                    image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929",
+                    readTime: "5 min",
+                    category: "breakfast"
+                },
+                {
+                    title: "Easy Pasta Recipes",
+                    excerpt: "Simple pasta dishes anyone can make in under 20 minutes.",
+                    image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8",
+                    readTime: "15 min",
+                    category: "dinner"
+                },
+                {
+                    title: "Healthy Smoothie Recipes",
+                    excerpt: "Nutritious smoothies for energy and weight loss.",
+                    image: "https://images.unsplash.com/photo-1505252585461-04db1eb84625",
+                    readTime: "3 min",
+                    category: "breakfast"
+                }
+            ];
+
+            // In a real site, this would fetch from your articles data
+            // For now, show a message
+            foodContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                    <h3>Your Food Articles Will Appear Here</h3>
+                    <p style="color: #718096; margin-top: 15px;">
+                        Add food articles in your <strong>script.js</strong> file under the "articles" array.
+                        Set <code>category: "food"</code> for each food article.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        <a href="index.html" style="color: #3182ce; text-decoration: underline;">
+                            ← Back to Home to see example articles
+                        </a>
+                    </p>
+                </div>
+            `;
+        });
+    </script>
 </body>
 </html>

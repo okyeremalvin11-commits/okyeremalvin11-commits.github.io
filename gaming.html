@@ -1,107 +1,243 @@
-G<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming – Digital Life Hub</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2440011936736360"
-     crossorigin="anonymous"></script>
-
+    <title>Gaming Guides - Digital Life Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #111;
-            color: #fff;
-        }
-
-        header {
-            background: #111;
-            padding: 15px;
+        .category-hero {
+            background: linear-gradient(rgba(128, 90, 213, 0.9), rgba(128, 90, 213, 0.7)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            border-bottom: 1px solid #444;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
         }
-
-        header a {
-            color: #fff;
+        .category-title {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .platform-tab {
+            background: #faf5ff;
+            border: 2px solid #d6bcfa;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #805ad5;
+            transition: all 0.3s;
+        }
+        .platform-tab:hover, .platform-tab.active {
+            background: #805ad5;
+            color: white;
+            border-color: #805ad5;
+        }
+        .back-home {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 12px 25px;
+            background: #805ad5;
+            color: white;
             text-decoration: none;
-            font-size: 22px;
+            border-radius: 5px;
             font-weight: bold;
         }
-
-        .container {
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ff4444;
-        }
-
-        .article {
-            background: #1a1a1a;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            border: 1px solid #333;
-        }
-
-        .article h2 {
-            margin: 0 0 10px;
-            color: #ff7777;
-        }
-
-        .article p {
-            line-height: 1.5;
-            color: #ddd;
-        }
-
-        footer {
-            margin-top: 30px;
-            padding: 15px;
-            text-align: center;
-            background: #111;
-            border-top: 1px solid #333;
-            color: #bbb;
-        }
-
-        footer a {
-            color: #ff4444;
-            text-decoration: none;
+        .back-home:hover {
+            background: #6b46c1;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>DigitalLifeHub</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="food.html"><i class="fas fa-utensils"></i> Food</a></li>
+                    <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                    <li><a href="gaming.html" class="nav-gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <a href="index.html">Digital Life Hub</a>
-</header>
+    <!-- Gaming Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-title"><i class="fas fa-gamepad"></i> Gaming Guides</h1>
+            <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Game reviews, walkthroughs, strategies, and esports coverage!</p>
+            
+            <div class="category-stats">
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">200+</div>
+                    <div>Game Guides</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">50+</div>
+                    <div>Game Reviews</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">All</div>
+                    <div>Platforms</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
-    <h1>Gaming Zone</h1>
+    <div class="container">
+        <!-- Platform Tabs -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Browse by Platform</h2>
+        
+        <div class="platform-tabs">
+            <div class="platform-tab active" data-platform="all">
+                <i class="fas fa-gamepad"></i> All Platforms
+            </div>
+            <div class="platform-tab" data-platform="pc">
+                <i class="fas fa-desktop"></i> PC Gaming
+            </div>
+            <div class="platform-tab" data-platform="console">
+                <i class="fas fa-tv"></i> Console
+            </div>
+            <div class="platform-tab" data-platform="mobile">
+                <i class="fas fa-mobile-alt"></i> Mobile
+            </div>
+            <div class="platform-tab" data-platform="esports">
+                <i class="fas fa-trophy"></i> Esports
+            </div>
+        </div>
 
-    <div class="article">
-        <h2>Top 10 Best Games to Play in 2025</h2>
-        <p>The gaming world in 2025 is packed with exciting releases, improved graphics, and immersive open worlds. Here are the top games every gamer should try this year.</p>
+        <!-- Gaming Articles -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Latest Game Guides</h2>
+        
+        <div class="articles-grid" id="gaming-articles">
+            <!-- Gaming articles will be loaded by JavaScript -->
+            <div style="grid-column: 1 / -1; text-align: center; padding: 50px; color: #718096;">
+                <i class="fas fa-gamepad fa-3x" style="margin-bottom: 20px; color: #805ad5;"></i>
+                <h3>Loading game guides...</h3>
+                <p>Gaming articles will appear here automatically when you add them.</p>
+                <p style="margin-top: 20px; font-size: 14px;">
+                    Add gaming articles in your <code>script.js</code> file with <code>category: "gaming"</code>
+                </p>
+            </div>
+        </div>
+
+        <!-- Top Games This Month -->
+        <div style="background: #faf5ff; padding: 30px; border-radius: 15px; margin: 40px 0;">
+            <h3 style="color: #2d3748;"><i class="fas fa-crown"></i> Top Games This Month</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 24px; color: #805ad5; margin-bottom: 10px;">🥇</div>
+                    <h4>Fortnite</h4>
+                    <p style="font-size: 14px; color: #718096;">Battle Royale</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 24px; color: #805ad5; margin-bottom: 10px;">🥈</div>
+                    <h4>Minecraft</h4>
+                    <p style="font-size: 14px; color: #718096;">Sandbox</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 24px; color: #805ad5; margin-bottom: 10px;">🥉</div>
+                    <h4>Valorant</h4>
+                    <p style="font-size: 14px; color: #718096;">FPS</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 24px; color: #805ad5; margin-bottom: 10px;">⭐</div>
+                    <h4>Roblox</h4>
+                    <p style="font-size: 14px; color: #718096;">Platform</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gaming Setup Tips -->
+        <div style="margin: 40px 0; padding: 25px; background: linear-gradient(135deg, #805ad5, #9f7aea); color: white; border-radius: 15px;">
+            <h3><i class="fas fa-tools"></i> Pro Gaming Setup Guide</h3>
+            <p style="margin: 15px 0;">Get the best gaming experience with our setup recommendations.</p>
+            <a href="#" style="color: white; text-decoration: underline; font-weight: bold;">
+                Read Full Guide →
+            </a>
+        </div>
+
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
     </div>
 
-    <div class="article">
-        <h2>PS5 vs Xbox Series X – Which Should You Choose?</h2>
-        <p>Both consoles are powerful, but they offer different advantages. Here's a detailed breakdown to help you pick the perfect gaming machine.</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>DigitalLifeHub</h3>
+                    <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Gaming Platforms</h3>
+                    <ul>
+                        <li><a href="gaming.html?platform=pc"><i class="fas fa-desktop"></i> PC Gaming</a></li>
+                        <li><a href="gaming.html?platform=console"><i class="fas fa-tv"></i> Console Gaming</a></li>
+                        <li><a href="gaming.html?platform=mobile"><i class="fas fa-mobile-alt"></i> Mobile Games</a></li>
+                        <li><a href="gaming.html?platform=esports"><i class="fas fa-trophy"></i> Esports</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
+                <p style="margin-top: 10px; font-size: 12px;">Game guides are updated regularly with latest patches and strategies.</p>
+            </div>
+        </div>
+    </footer>
 
-    <div class="article">
-        <h2>How to Improve Your Gaming Skills</h2>
-        <p>From aim training to strategy guides, here are the best tips to level up your gaming performance in competitive titles.</p>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Platform tabs functionality
+            const platformTabs = document.querySelectorAll('.platform-tab');
+            platformTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    platformTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const platform = this.getAttribute('data-platform');
+                    alert(`Filtering by platform: ${platform} (This would filter in a real site)`);
+                });
+            });
 
-</div>
-
-<footer>
-    <p>&copy; 2025 Digital Life Hub • <a href="privacy-policy.html">Privacy Policy</a></p>
-</footer>
-
+            // Gaming articles will be loaded here
+            // For now, show instructional message
+        });
+    </script>
 </body>
 </html>

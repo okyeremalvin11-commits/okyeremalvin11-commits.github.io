@@ -17,16 +17,17 @@
                 <div class="logo-icon">🚀</div>
                 <span>DigitalLifeHub</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="nav-food"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="food.html" class="nav-food"><i class="fas fa-utensils"></i> Food</a></li>
-                    <li><a href="tech.html" class="nav-tech"><i class="fas fa-microchip"></i> Tech</a></li>
-                    <li><a href="gaming.html"><i class="fas fa-gamepad"></i> Gaming</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </nav>
+     <nav>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="food.html"><i class="fas fa-utensils"></i> Food</a></li>
+        <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
+        <li><a href="gaming.html"><i class="fas fa-gamepad"></i> Gaming</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -154,58 +155,75 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>DigitalLifeHub</h3>
-                    <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
-                    <div class="footer-stats">
-                        <div>Total Content: <span id="total-content">430</span> articles</div>
-                        <div>Updated: <span id="last-updated">Today</span></div>
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <h3><i class="fas fa-rocket"></i> DigitalLifeHub</h3>
+                <p style="color: #a0aec0; margin-top: 10px; line-height: 1.6;">
+                    Your ultimate guide to food, technology, and gaming lifestyle. 
+                    Free content supported by ethical advertising.
+                </p>
+                <div class="footer-stats" style="margin-top: 15px;">
+                    <div style="font-size: 12px; color: #90cdf4;">
+                        <i class="fas fa-chart-line"></i> 
+                        <span id="total-visitors-footer">0</span> Total Visitors
                     </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="#food"><i class="fas fa-utensils"></i> Food & Recipes</a></li>
-                        <li><a href="#tech"><i class="fas fa-laptop-code"></i> Tech Tutorials</a></li>
-                        <li><a href="#gaming"><i class="fas fa-gamepad"></i> Gaming Guides</a></li>
-                        <li><a href="#reviews"><i class="fas fa-star"></i> Product Reviews</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#templates"><i class="fas fa-download"></i> Free Templates</a></li>
-                        <li><a href="#tools"><i class="fas fa-tools"></i> Tools & Software</a></li>
-                        <li><a href="#earnings"><i class="fas fa-chart-line"></i> Earnings Reports</a></li>
-                        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#youtube"><i class="fab fa-youtube"></i> YouTube</a></li>
-                        <li><a href="#discord"><i class="fab fa-discord"></i> Discord</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                    </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
-                <p style="margin-top: 10px; font-size: 12px;">This site earns revenue through advertisements and affiliate links.</p>
-                <p style="margin-top: 5px; font-size: 12px;" id="page-load-time">Page loaded in <span id="load-time">0</span> seconds</p>
+            <!-- Column 2: Categories -->
+            <div class="footer-column">
+                <h3><i class="fas fa-th-large"></i> Categories</h3>
+                <ul>
+                    <!-- These scroll to sections on the SAME page -->
+                    <li><a href="#food"><i class="fas fa-utensils"></i> Food & Recipes</a></li>
+                    <li><a href="#tech"><i class="fas fa-laptop-code"></i> Technology</a></li>
+                    <li><a href="#gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Legal & Important -->
+            <div class="footer-column">
+                <h3><i class="fas fa-gavel"></i> Important</h3>
+                <ul>
+                    <!-- These go to SEPARATE pages -->
+                    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="advertising.html"><i class="fas fa-ad"></i> Advertising</a></li>
+                    <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4: Quick Links -->
+            <div class="footer-column">
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home Page</a></li>
+                    <li><a href="index.html#latest"><i class="fas fa-newspaper"></i> Latest Articles</a></li>
+                    <li><a href="index.html#popular"><i class="fas fa-fire"></i> Popular Content</a></li>
+                    <li><a href="#newsletter"><i class="fas fa-envelope-open-text"></i> Newsletter</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-
+        
+        <!-- Copyright & AdSense Notice -->
+        <div class="copyright">
+            <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
+            <div style="margin-top: 10px; font-size: 12px; color: #a0aec0;">
+                <p>
+                    <i class="fas fa-ad"></i> This site uses <strong>Google AdSense</strong> for advertising revenue. 
+                    Earnings support free content creation.
+                </p>
+                <p style="margin-top: 5px; font-size: 11px;">
+                    <i class="fas fa-mouse-pointer"></i> Clicking ads helps support this website. Thank you!
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
     <!-- JavaScript Files -->
     <script src="script.js"></script>
 </body>

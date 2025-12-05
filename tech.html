@@ -1,132 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Tutorials | Digital Life Hub</title>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2440011936736360"
-     crossorigin="anonymous"></script>
-<style>
-:root {
-    --tech-color: #3182ce;
-    --dark: #2d3748;
-    --gray: #718096;
-    --light: #f7fafc;
-    --shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-body { margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background:#f8f9fa; color:#333;}
-header, footer { background: var(--dark); color:white; padding:20px;}
-header h1 { margin:0; font-size:24px;}
-footer p { margin:5px 0; font-size:14px;}
-.container { max-width:1200px; margin:0 auto; padding:0 20px;}
-.hero { background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center; text-align:center; padding:60px 20px; color:white; border-radius:0 0 20px 20px;}
-.hero h1 { font-size:36px; margin-bottom:10px;}
-.hero p { font-size:16px; margin-bottom:0;}
-.main-grid { display:grid; grid-template-columns:2fr 1fr; gap:30px; margin:40px 0;}
-.articles-grid { display:grid; grid-template-columns:1fr; gap:25px;}
-.article-card { background:white; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); transition: transform 0.3s; cursor:pointer;}
-.article-card:hover { transform:translateY(-5px);}
-.article-image { height:200px; background-size:cover; background-position:center;}
-.article-content { padding:20px;}
-.article-category { display:inline-block; padding:5px 10px; border-radius:15px; font-size:12px; font-weight:bold; color:white; background: var(--tech-color); margin-bottom:10px;}
-.article-title { font-size:18px; color: var(--dark); margin-bottom:10px;}
-.article-excerpt { font-size:14px; color: var(--gray); margin-bottom:15px;}
-.read-more { text-decoration:none; color: var(--dark); font-weight:600;}
-.read-more:hover { color: #2b6cb0;}
-.sidebar { background:white; border-radius:12px; padding:20px; box-shadow: var(--shadow); position:sticky; top:20px; height:fit-content;}
-.sidebar-section { margin-bottom:25px;}
-.sidebar-title { font-size:16px; margin-bottom:15px; border-bottom:1px solid #edf2f7; padding-bottom:5px;}
-.ad-space { background:#f7fafc; border:2px dashed #cbd5e0; border-radius:10px; padding:20px; text-align:center; margin:30px 0;}
-input, button { width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid #cbd5e0; font-size:14px;}
-button { background: var(--tech-color); color:white; border:none; cursor:pointer; font-weight:bold;}
-button:hover { background:#2b6cb0;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Tutorials - Digital Life Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .category-hero {
+            background: linear-gradient(rgba(49, 130, 206, 0.9), rgba(49, 130, 206, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+        .category-title {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .tech-category {
+            background: #ebf8ff;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 5px solid #3182ce;
+            transition: transform 0.3s;
+        }
+        .tech-category:hover {
+            transform: translateY(-5px);
+        }
+        .tech-category i {
+            font-size: 32px;
+            color: #3182ce;
+            margin-bottom: 15px;
+        }
+        .back-home {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 12px 25px;
+            background: #3182ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-home:hover {
+            background: #2c5282;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>DigitalLifeHub</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="food.html"><i class="fas fa-utensils"></i> Food</a></li>
+                    <li><a href="tech.html" class="nav-tech"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                    <li><a href="gaming.html"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <h1>Digital Life Hub | Tech</h1>
-</header>
-
-<section class="hero">
-    <h1>Tech Tutorials</h1>
-    <p>Master coding, gadgets, and digital skills!</p>
-</section>
-
-<div class="container main-grid">
-<main>
-    <h2 style="color:var(--dark); margin-bottom:20px;">Latest Tech Articles</h2>
-    <div class="articles-grid" id="tech-articles-container">
-        <!-- Article 1 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Tech</span>
-                <h3 class="article-title">Learn JavaScript Basics</h3>
-                <p class="article-excerpt">Step-by-step beginner guide to mastering JavaScript fundamentals.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+    <!-- Tech Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-title"><i class="fas fa-laptop-code"></i> Technology Tutorials</h1>
+            <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Learn coding, software, hardware, and digital skills!</p>
+            
+            <div class="category-stats">
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">80+</div>
+                    <div>Tutorials</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">10+</div>
+                    <div>Tech Stacks</div>
+                </div>
+                <div class="stat-box">
+                    <div style="font-size: 24px; font-weight: bold;">Free</div>
+                    <div>All Content</div>
+                </div>
             </div>
         </div>
-        <!-- Article 2 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Tech</span>
-                <h3 class="article-title">Top 5 Programming Tools</h3>
-                <p class="article-excerpt">Discover the most efficient tools for coding and software development.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+    </section>
+
+    <div class="container">
+        <!-- Tech Categories -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Learn These Skills</h2>
+        
+        <div class="tech-categories">
+            <div class="tech-category">
+                <i class="fab fa-html5"></i>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript tutorials</p>
+            </div>
+            <div class="tech-category">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Apps</h3>
+                <p>Android & iOS development</p>
+            </div>
+            <div class="tech-category">
+                <i class="fas fa-database"></i>
+                <h3>Databases</h3>
+                <p>SQL, MongoDB, Firebase</p>
+            </div>
+            <div class="tech-category">
+                <i class="fas fa-robot"></i>
+                <h3>AI & Machine Learning</h3>
+                <p>Python, TensorFlow, AI tools</p>
+            </div>
+            <div class="tech-category">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersecurity</h3>
+                <p>Online safety & protection</p>
+            </div>
+            <div class="tech-category">
+                <i class="fas fa-tools"></i>
+                <h3>Tools & Software</h3>
+                <p>Productivity & development tools</p>
             </div>
         </div>
-        <!-- Article 3 -->
-        <div class="article-card">
-            <div class="article-image" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="article-content">
-                <span class="article-category">Tech</span>
-                <h3 class="article-title">Build Your First Website</h3>
-                <p class="article-excerpt">Learn how to create a responsive website from scratch in easy steps.</p>
-                <a href="#" class="read-more">Read More &rarr;</a>
+
+        <!-- Tech Articles -->
+        <h2 style="margin: 40px 0 25px 0; color: #2d3748;">Latest Tech Tutorials</h2>
+        
+        <div class="articles-grid" id="tech-articles">
+            <!-- Tech articles will be loaded by JavaScript -->
+            <div style="grid-column: 1 / -1; text-align: center; padding: 50px; color: #718096;">
+                <i class="fas fa-laptop-code fa-3x" style="margin-bottom: 20px; color: #3182ce;"></i>
+                <h3>Loading tech tutorials...</h3>
+                <p>Technology articles will appear here automatically when you add them.</p>
+                <p style="margin-top: 20px; font-size: 14px;">
+                    Add tech articles in your <code>script.js</code> file with <code>category: "tech"</code>
+                </p>
             </div>
         </div>
-    </div>
 
-    <div class="ad-space">
-        <span>ADVERTISEMENT</span>
-        <p>Your ad can appear here!</p>
-        <div>Views: <span id="tech-ad-views">0</span></div>
-    </div>
-</main>
-
-<aside class="sidebar">
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Trending Tech</h3>
-        <div id="trending-tech-list">
-            <p>1. AI Tools You Must Try</p>
-            <p>2. Productivity Apps</p>
-            <p>3. Latest Gadgets 2025</p>
+        <!-- Beginner's Guide -->
+        <div style="background: #ebf8ff; padding: 30px; border-radius: 15px; margin: 40px 0;">
+            <h3 style="color: #2d3748;"><i class="fas fa-graduation-cap"></i> Beginner's Guide to Tech</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 10px;">
+                    <h4>1. Choose a Language</h4>
+                    <p>Start with HTML/CSS for web, Python for AI, or JavaScript for apps.</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 10px;">
+                    <h4>2. Build Projects</h4>
+                    <p>Create simple projects to apply what you learn.</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 10px;">
+                    <h4>3. Join Communities</h4>
+                    <p>Connect with other learners online.</p>
+                </div>
+            </div>
         </div>
+
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
     </div>
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Newsletter</h3>
-        <input type="email" id="newsletter-email-tech" placeholder="Your email">
-        <button id="subscribe-btn-tech">Subscribe</button>
-        <div id="subscribe-message-tech"></div>
-    </div>
-</aside>
-</div>
 
-<footer>
-    <p>© 2025 Digital Life Hub. All content free to use.</p>
-    <p><a href="privacy-policy.html" style="color:white;">Privacy Policy</a></p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>DigitalLifeHub</h3>
+                    <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Tech Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-code"></i> Free Code Templates</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> Development Tools</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Learning Paths</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Tech Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
+                <p style="margin-top: 10px; font-size: 12px;">Tech tutorials are beginner-friendly and regularly updated.</p>
+            </div>
+        </div>
+    </footer>
 
-<script>
-document.getElementById('subscribe-btn-tech').addEventListener('click', function(){
-    var email = document.getElementById('newsletter-email-tech').value;
-    var msg = document.getElementById('subscribe-message-tech');
-    if(email.trim() === ''){ msg.innerText = 'Please enter your email!'; msg.style.color='red'; }
-    else{ msg.innerText = 'Subscribed successfully!'; msg.style.color='green'; }
-});
-</script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tech articles will be loaded here
+            // For now, show instructional message
+        });
+    </script>
 </body>
 </html>

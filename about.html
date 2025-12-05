@@ -6,11 +6,60 @@
     <title>About Us - Digital Life Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2440011936736360"
-     crossorigin="anonymous"></script>
+    <style>
+        .about-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .about-container h1 {
+            color: #2d3748;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 10px;
+        }
+        .mission-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .category-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .category-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid;
+        }
+        .category-food { border-color: #e53e3e; }
+        .category-tech { border-color: #3182ce; }
+        .category-gaming { border-color: #805ad5; }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #3182ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-home:hover {
+            background: #2c5282;
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -19,102 +68,90 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="#food" class="nav-food"><i class="fas fa-utensils"></i> Food</a></li>
-                    <li><a href="#tech" class="nav-tech"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                    <li><a href="#gaming" class="nav-gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="index.html" class="nav-food"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#food" class="nav-food"><i class="fas fa-utensils"></i> Food</a></li>
+                    <li><a href="index.html#tech" class="nav-tech"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                    <li><a href="index.html#gaming" class="nav-gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <h1>About Digital Life Hub</h1>
-            <p>Your ultimate hub for Food, Tech, and Gaming. Learn, explore, and enjoy all in one place!</p>
-        </div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <div class="container main-grid" style="margin-top: 40px;">
-        <main>
-            <h2>Our Mission</h2>
-            <p>Digital Life Hub was created to bring together enthusiasts of food, technology, and gaming.  
-            Our goal is to provide high-quality content, tutorials, guides, and reviews to make your digital lifestyle easier and more enjoyable.</p>
-
-            <h2>Who We Are</h2>
-            <p>We are a small team of passionate creators, developers, and gamers who love sharing our knowledge and experiences.  
-            Every article, tutorial, and guide is crafted with care to ensure it is both helpful and enjoyable.</p>
-
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>Comprehensive content covering Food, Tech, and Gaming</li>
-                <li>Regularly updated tutorials, guides, and reviews</li>
-                <li>Responsive design for mobile and desktop users</li>
-                <li>Free to access with optional newsletter subscription</li>
+    <div class="container">
+        <div class="about-container">
+            <h1><i class="fas fa-info-circle"></i> About Digital Life Hub</h1>
+            
+            <p>Welcome to Digital Life Hub – your one-stop destination for everything related to modern digital lifestyle!</p>
+            
+            <div class="mission-box">
+                <h2 style="color: white;"><i class="fas fa-bullseye"></i> Our Mission</h2>
+                <p>To provide high-quality, free content about food, technology, and gaming while generating sustainable revenue through ethical advertising.</p>
+            </div>
+            
+            <h2><i class="fas fa-layer-group"></i> What We Cover</h2>
+            
+            <div class="category-box">
+                <div class="category-item category-food">
+                    <i class="fas fa-utensils fa-2x" style="color: #e53e3e;"></i>
+                    <h3>Food & Recipes</h3>
+                    <p>Easy recipes, cooking tips, and food hacks for busy people.</p>
+                </div>
+                
+                <div class="category-item category-tech">
+                    <i class="fas fa-laptop-code fa-2x" style="color: #3182ce;"></i>
+                    <h3>Technology</h3>
+                    <p>Tech tutorials, software reviews, and digital skills.</p>
+                </div>
+                
+                <div class="category-item category-gaming">
+                    <i class="fas fa-gamepad fa-2x" style="color: #805ad5;"></i>
+                    <h3>Gaming</h3>
+                    <p>Game guides, hardware reviews, and gaming culture.</p>
+                </div>
+            </div>
+            
+            <h2><i class="fas fa-money-bill-wave"></i> How We Sustain</h2>
+            <p>Digital Life Hub is supported by:</p>
+            <ul style="margin-left: 20px; color: #718096;">
+                <li><strong>Google AdSense:</strong> Displaying relevant ads to visitors</li>
+                <li><strong>Affiliate Marketing:</strong> Recommending useful products</li>
+                <li><strong>Community Support:</strong> Visitors like you!</li>
             </ul>
-
-            <h2>Contact</h2>
-            <p>If you want to reach out, send us an email at <strong>okyeremalvin11@gmail.com</strong> or use the contact form on our website.</p>
-        </main>
+            
+            <p style="margin-top: 20px; background: #f0fff4; padding: 15px; border-radius: 8px; border-left: 4px solid #38a169;">
+                <i class="fas fa-lightbulb" style="color: #38a169;"></i>
+                <strong>Note:</strong> Our content is always free. Ad revenue allows us to keep creating more content without paywalls or subscriptions.
+            </p>
+            
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
     </div>
 
-    <!-- BACK TO HOME -->
-    <div class="container" style="text-align: center; margin: 40px 0;">
-        <a href="index.html" class="load-more-btn">← Back to Home</a>
-    </div>
-
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>DigitalLifeHub</h3>
                     <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
-                    <div class="footer-stats">
-                        <div>Total Content: <span id="total-content">430</span> articles</div>
-                        <div>Updated: <span id="last-updated">Today</span></div>
-                    </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Categories</h3>
+                    <h3>Explore</h3>
                     <ul>
-                        <li><a href="#food"><i class="fas fa-utensils"></i> Food & Recipes</a></li>
-                        <li><a href="#tech"><i class="fas fa-laptop-code"></i> Tech Tutorials</a></li>
-                        <li><a href="#gaming"><i class="fas fa-gamepad"></i> Gaming Guides</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#templates"><i class="fas fa-download"></i> Free Templates</a></li>
-                        <li><a href="#tools"><i class="fas fa-tools"></i> Tools & Software</a></li>
-                        <li><a href="#earnings"><i class="fas fa-chart-line"></i> Earnings Reports</a></li>
-                        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#youtube"><i class="fab fa-youtube"></i> YouTube</a></li>
-                        <li><a href="#discord"><i class="fab fa-discord"></i> Discord</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>© 2025 DigitalLifeHub. All content is free to use with attribution.</p>
+                <p>© 2024 DigitalLifeHub. All content is free to use with attribution.</p>
+                <p style="margin-top: 10px; font-size: 12px;">Revenue generated through Google AdSense supports free content creation.</p>
             </div>
         </div>
     </footer>
