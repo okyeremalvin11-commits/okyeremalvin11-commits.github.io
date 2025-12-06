@@ -425,3 +425,170 @@ window.allArticles = allArticles;
 window.loadArticles = loadArticles;
 window.loadArticlesByCategory = loadArticlesByCategory;
 window.loadMoreArticles = loadMoreArticles;
+// ====== MOBILE MENU FUNCTIONALITY ======
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix mobile menu button - make it a button if it's a div
+    const mobileMenuDiv = document.querySelector('.mobile-menu-btn');
+    if (mobileMenuDiv && mobileMenuDiv.tagName !== 'BUTTON') {
+        // Create a button element
+        const button = document.createElement('button');
+        button.className = 'mobile-menu-btn';
+        button.id = 'mobileMenuBtn';
+        button.innerHTML = '<i class="fas fa-bars"></i>';
+        
+        // Replace the div with button
+        mobileMenuDiv.parentNode.replaceChild(button, mobileMenuDiv);
+    }
+
+    // Get mobile menu elements
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn') || document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('nav');
+    
+    if (mobileMenuBtn && mainNav) {
+        console.log('Mobile menu elements found, adding click event...');
+        
+        // Toggle menu when button is clicked
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling up
+            
+            // Toggle active class on nav
+            mainNav.classList.toggle('active');
+            
+            // Change icon based on state
+            if (mainNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                console.log('Menu opened');
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                console.log('Menu closed');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mainNav.classList.contains('active') && 
+                !e.target.closest('nav') && 
+                !e.target.closest('.mobile-menu-btn')) {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close menu when clicking a link (optional)
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Add CSS for mobile if not already in style.css
+        if (!document.querySelector('#mobile-css')) {
+            const mobileCSS = document.createElement('style');
+            mobileCSS.id = 'mobile-css';
+            mobileCSS.textContent = `
+                /* Mobile Menu Styles */
+                .mobile-menu-btn {
+                    display: none;
+                    background: none;
+                    border: none;
+                    font-size: 24px;
+                    color: #3182ce;
+                    cursor: pointer;
+                    padding: 5px;
+                }
+                
+                @media (max-width: 768px) {
+                    .mobile-menu-btn {
+                        display: block;
+                    }
+                    
+                    nav {
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: white;
+                        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                        padding: 20px;
+                        z-index: 1000;
+                    }
+                    
+                    nav.active {
+                        display: block;
+                        animation: slideDown 0.3s ease;
+                    }
+                    
+                    nav ul {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    
+                    nav a {
+                        display: block;
+                        text-align: center;
+                        padding: 12px;
+                        justify-content: center;
+                    }
+                    
+                    /* Mobile layout adjustments */
+                    .hero {
+                        padding: 60px 20px;
+                    }
+                    
+                    .hero h1 {
+                        font-size: 32px;
+                    }
+                    
+                    .category-tags {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    
+                    .tag {
+                        width: 100%;
+                        max-width: 250px;
+                        justify-content: center;
+                    }
+                    
+                    .main-grid {
+                        grid-template-columns: 1fr;
+                        gap: 30px;
+                    }
+                    
+                    .stats-container {
+                        grid-template-columns: 1fr;
+                        gap: 15px;
+                    }
+                    
+                    .articles-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .footer-grid {
+                        grid-template-columns: 1fr;
+                        gap: 30px;
+                    }
+                }
+                
+                @keyframes slideDown {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(mobileCSS);
+        }
+    } else {
+        console.error('Mobile menu elements not found!');
+        console.log('mobileMenuBtn:', mobileMenuBtn);
+        console.log('mainNav:', mainNav);
+    }
+});
