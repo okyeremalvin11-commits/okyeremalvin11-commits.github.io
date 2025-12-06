@@ -394,142 +394,87 @@ function loadTrending() {
     `).join('');
 }
 
-// ====== INITIALIZATION ======
-document.addEventListener('DOMContentLoaded', function() {
-    // Load articles on homepage
-    if (document.getElementById('articles-container')) {
-        loadArticles();
-        loadTrending();
-        
-        // Add load more event
-        const loadMoreBtn = document.getElementById('load-more');
-        if (loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', loadMoreArticles);
-        }
-    }
-    
-    // Load articles on category pages
-    if (window.location.pathname.includes('food.html')) {
-        loadArticlesByCategory('food');
-    }
-    if (window.location.pathname.includes('tech.html')) {
-        loadArticlesByCategory('tech');
-    }
-    if (window.location.pathname.includes('gaming.html')) {
-        loadArticlesByCategory('gaming');
-    }
-});
-
-// ====== GLOBAL ACCESS ======
-window.allArticles = allArticles;
-window.loadArticles = loadArticles;
-window.loadArticlesByCategory = loadArticlesByCategory;
-window.loadMoreArticles = loadMoreArticles;
 // ====== MOBILE MENU FUNCTIONALITY ======
-document.addEventListener('DOMContentLoaded', function() {
-    // Fix mobile menu button - make it a button if it's a div
-    const mobileMenuDiv = document.querySelector('.mobile-menu-btn');
-    if (mobileMenuDiv && mobileMenuDiv.tagName !== 'BUTTON') {
-        // Create a button element
-        const button = document.createElement('button');
-        button.className = 'mobile-menu-btn';
-        button.id = 'mobileMenuBtn';
-        button.innerHTML = '<i class="fas fa-bars"></i>';
-        
-        // Replace the div with button
-        mobileMenuDiv.parentNode.replaceChild(button, mobileMenuDiv);
-    }
-
-    // Get mobile menu elements
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn') || document.querySelector('.mobile-menu-btn');
-    const mainNav = document.querySelector('nav');
+function initializeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.querySelector('nav');
     
-    if (mobileMenuBtn && mainNav) {
-        console.log('Mobile menu elements found, adding click event...');
+    if (mobileMenuBtn && nav) {
+        console.log('Mobile menu elements found');
         
         // Toggle menu when button is clicked
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event from bubbling up
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('mobile-menu-active');
+            this.classList.toggle('active');
             
-            // Toggle active class on nav
-            mainNav.classList.toggle('active');
-            
-            // Change icon based on state
-            if (mainNav.classList.contains('active')) {
-                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
-                console.log('Menu opened');
+            // Change icon
+            if (this.classList.contains('active')) {
+                this.innerHTML = '<i class="fas fa-times"></i>';
             } else {
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                console.log('Menu closed');
+                this.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (mainNav.classList.contains('active') && 
-                !e.target.closest('nav') && 
-                !e.target.closest('.mobile-menu-btn')) {
-                mainNav.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-        
-        // Close menu when clicking a link (optional)
-        mainNav.querySelectorAll('a').forEach(link => {
+        // Close menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
-                mainNav.classList.remove('active');
+                nav.classList.remove('mobile-menu-active');
+                mobileMenuBtn.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Add CSS for mobile if not already in style.css
-        if (!document.querySelector('#mobile-css')) {
-            const mobileCSS = document.createElement('style');
-            mobileCSS.id = 'mobile-css';
-            mobileCSS.textContent = `
-                /* Mobile Menu Styles */
-                .mobile-menu-btn {
+        // Add mobile CSS if not already in style.css
+        if (!document.querySelector('#mobile-menu-styles')) {
+            const mobileStyles = document.createElement('style');
+            mobileStyles.id = 'mobile-menu-styles';
+            mobileStyles.textContent = `
+                /* Mobile Menu Button */
+                #mobileMenuBtn {
                     display: none;
                     background: none;
                     border: none;
                     font-size: 24px;
-                    color: #3182ce;
+                    color: white;
                     cursor: pointer;
-                    padding: 5px;
+                    padding: 10px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1001;
                 }
                 
+                /* Mobile Navigation Styles */
                 @media (max-width: 768px) {
-                    .mobile-menu-btn {
+                    #mobileMenuBtn {
                         display: block;
                     }
                     
                     nav {
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        right: 0;
-                        background: white;
-                        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                        padding: 20px;
+                        position: fixed;
+                        top: 0;
+                        left: -100%;
+                        width: 250px;
+                        height: 100vh;
+                        background: rgba(0, 0, 0, 0.95);
+                        flex-direction: column;
+                        padding: 80px 20px 20px;
+                        transition: left 0.3s ease;
                         z-index: 1000;
                     }
                     
-                    nav.active {
-                        display: block;
-                        animation: slideDown 0.3s ease;
+                    nav.mobile-menu-active {
+                        left: 0;
                     }
                     
                     nav ul {
                         flex-direction: column;
-                        gap: 10px;
+                        width: 100%;
                     }
                     
-                    nav a {
-                        display: block;
-                        text-align: center;
-                        padding: 12px;
-                        justify-content: center;
+                    nav ul li {
+                        margin: 10px 0;
+                        width: 100%;
                     }
                     
                     /* Mobile layout adjustments */
@@ -571,24 +516,62 @@ document.addEventListener('DOMContentLoaded', function() {
                         grid-template-columns: 1fr;
                         gap: 30px;
                     }
-                }
-                
-                @keyframes slideDown {
-                    from {
-                        opacity: 0;
-                        transform: translateY(-10px);
+                    
+                    /* Ensure overlay behind mobile menu */
+                    body::after {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0,0,0,0.5);
+                        z-index: 999;
+                        display: none;
                     }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
+                    
+                    body.mobile-menu-open::after {
+                        display: block;
                     }
                 }
             `;
-            document.head.appendChild(mobileCSS);
+            document.head.appendChild(mobileStyles);
         }
-    } else {
-        console.error('Mobile menu elements not found!');
-        console.log('mobileMenuBtn:', mobileMenuBtn);
-        console.log('mainNav:', mainNav);
+    }
+}
+
+// ====== INITIALIZATION ======
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize mobile menu
+    initializeMobileMenu();
+    
+    // Load articles on homepage
+    if (document.getElementById('articles-container')) {
+        loadArticles();
+        loadTrending();
+        
+        // Add load more event
+        const loadMoreBtn = document.getElementById('load-more');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', loadMoreArticles);
+        }
+    }
+    
+    // Load articles on category pages
+    if (window.location.pathname.includes('food.html')) {
+        loadArticlesByCategory('food');
+    }
+    if (window.location.pathname.includes('tech.html')) {
+        loadArticlesByCategory('tech');
+    }
+    if (window.location.pathname.includes('gaming.html')) {
+        loadArticlesByCategory('gaming');
     }
 });
+
+// ====== GLOBAL ACCESS ======
+window.allArticles = allArticles;
+window.loadArticles = loadArticles;
+window.loadArticlesByCategory = loadArticlesByCategory;
+window.loadMoreArticles = loadMoreArticles;
+window.initializeMobileMenu = initializeMobileMenu;
