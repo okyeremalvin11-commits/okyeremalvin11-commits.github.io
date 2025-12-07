@@ -71,23 +71,42 @@
         .back-home:hover {
             background: #3182ce;
         }
+        .ghana-badge {
+            background: linear-gradient(to right, #CE1126, #FCD116, #006B3F);
+            color: black;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER - UPDATED TO MATCH INDEX.HTML -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <div class="logo-icon">🚀</div>
-                <span>DigitalLifeHub</span>
+                <span>DigitalLifeHub <span class="ghana-badge">🇬🇭</span></span>
             </div>
-            <nav>
+            
+            <!-- MOBILE MENU BUTTON - ADDED -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
                 <ul>
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="food.html" class="nav-food"><i class="fas fa-utensils"></i> Food</a></li>
-                    <li><a href="tech.html" class="nav-tech active"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                    <li><a href="gaming.html" class="nav-gaming"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                    <li><a href="food.html"><i class="fas fa-utensils"></i> Ghanaian Food</a></li>
+                    <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech Ghana</a></li>
+                    <li><a href="gaming.html"><i class="fas fa-gamepad"></i> Gaming Ghana</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
                     <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
@@ -172,7 +191,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>DigitalLifeHub</h3>
+                    <h3>DigitalLifeHub 🇬🇭</h3>
                     <p style="color: #a0aec0; margin-top: 10px;">Your ultimate guide to food, technology, and gaming lifestyle.</p>
                 </div>
                 
@@ -194,9 +213,17 @@
         </div>
     </footer>
 
+    <!-- Load main JavaScript file for mobile menu -->
+    <script src="script.js"></script>
+    
     <script>
         // Load and display REAL tech articles
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile menu if available
+            if (typeof initializeMobileMenu === 'function') {
+                initializeMobileMenu();
+            }
+            
             const techContainer = document.getElementById('tech-articles');
             
             // Tech articles data - Using same image pattern as index.html
